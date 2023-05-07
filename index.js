@@ -23,6 +23,11 @@ app.get('/user',(req, res) =>{
 app.post("/user", (req, res) =>{
     console.log("post api console hitting")
     console.log(req.body)
+
+    const newUser = req.body;
+    newUser.id = user.length + 1;
+    user.push(newUser);
+    res.send(newUser);
 })
 
 app.listen(port, ()=>{
